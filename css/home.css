@@ -1,0 +1,33 @@
+nav{
+    background-color: #24353F !important;
+    box-shadow: -4px 4px 54px -9px black;
+}
+.nav-title{
+    text-transform: uppercase;
+    color: white !important;
+    font-size: 20px;
+}
+.log-botn{
+    color: white !important;
+    border: solid #FFC107 1px;
+    border-radius:5px ;
+    transition: all 0.3s;
+
+}
+.log-botn:hover{
+    background-color: #FFC107;
+
+}
+header{
+    background-color: #24353F;
+    min-height: 100vh;
+    overflow: auto;
+
+}
+.rectangle{
+    width: 55%;
+    margin: auto;
+    
+    background-color: #24353F;
+    box-shadow:  -5px 2px 50px -9px rgba(0, 0, 0, 1);
+}
