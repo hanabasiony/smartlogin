@@ -66,12 +66,21 @@ h1{
     color: red;
     
 }
-.succ-msg{
+.succ-msg {
     color: green;
 }
 input{
     color: white !important;
 }
-.already-msg{
+.already-msg , .email-msg , .pass-msg{
     color: red;
+}
+@media only screen and (max-width: 900px){
+    .rectangle{
+        width: 80%;
+    }
+    .sign-in-div{
+        flex-direction: column !important;
+        justify-content: space-between !important;
+    }
 }

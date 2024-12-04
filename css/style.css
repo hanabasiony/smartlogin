@@ -72,3 +72,14 @@ h1{
 input{
     color: white;
 }
+
+@media only screen and (max-width: 900px){
+    .rectangle{
+        width: 80%;
+        /* height: 500px; */
+    }
+    .sign-in-div{
+        flex-direction: column !important;
+        justify-content: space-between !important;
+    }
+}

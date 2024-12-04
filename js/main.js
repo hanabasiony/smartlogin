@@ -22,6 +22,9 @@ function dnoneAll() {
     allrreg.classList.add('d-none')
     emptyInput.classList.add('d-none')
     succesMsg.classList.add('d-none')
+    document.querySelector('.email-msg').classList.add('d-none')
+    document.querySelector('.pass-msg').classList.add('d-none')
+
 
 }
 
@@ -70,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
             signUpEmail.addEventListener('keyup', dnoneAll)
             signUpPass.addEventListener('keyup', dnoneAll)
 
-
+          
             var signUpNameValue = signUpName.value
             var signUpEmailValue = signUpEmail.value
             var signUpPassValue = signUpPass.value
@@ -87,6 +90,22 @@ document.addEventListener('DOMContentLoaded', function () {
                 pass: signUpPassValue,
             }
 
+            var emailRegex = /^\S+@\S+\.\S+$/
+            function validateEmail() {
+                return emailRegex.test(signUpEmail.value)
+            }
+
+            var passRegex = /^.{5,}$/
+            function validatePass() {
+                return passRegex.test(signUpPass.value)
+            }
+
+            if (validateEmail() == false) {
+                document.querySelector('.email-msg').classList.remove('d-none')
+            }
+            if (validatePass() == false) {
+                document.querySelector('.pass-msg').classList.remove('d-none')
+            }
             var checkEmail
             if (signUpNameValue === '' || signUpEmailValue === '' || signUpPassValue === '') {
                 emptyInput.classList.remove('d-none')
@@ -110,11 +129,13 @@ document.addEventListener('DOMContentLoaded', function () {
                     succesMsg.classList.add('d-none')
 
                 } else {
-                    allUsers.push(User)
-                    localStorage.setItem('allUsers', JSON.stringify(allUsers))
-                    succesMsg.classList.remove('d-none')
-                    allrreg.classList.add('d-none')
-                    emptyInput.classList.add('d-none')
+                    if (validateEmail() && validatePass()) {
+                        allUsers.push(User)
+                        localStorage.setItem('allUsers', JSON.stringify(allUsers))
+                        succesMsg.classList.remove('d-none')
+                        allrreg.classList.add('d-none')
+                        emptyInput.classList.add('d-none')
+                    }
                 }
             }
         })
